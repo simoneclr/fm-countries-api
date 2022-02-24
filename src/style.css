@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 :root {
-  /* Light theme by default */
-  /* Colors */
-  --bg-surface: hsl(0, 0%, 98%);
-  --bg-elements: hsl(0, 0%, 100%);
-
-  --txt-main: hsl(200, 15%, 8%);
-  --txt-placeholder: hsl(0, 0%, 52%);
-
   /* Font Weights */
   --weight-heavy: 800;
   --weight-medium: 600;
@@ -21,6 +13,8 @@
   --bg-surface: hsl(0, 0%, 98%);
   --bg-elements: hsl(0, 0%, 100%);
 
+  --shadow-color: rgba(0, 0, 0, .4);
+
   --txt-main: hsl(200, 15%, 8%);
   --txt-placeholder: hsl(0, 0%, 52%);
 }
@@ -30,6 +24,8 @@
   /* Colors */
   --bg-surface: hsl(207, 26%, 17%);
   --bg-elements: hsl(209, 23%, 22%);
+
+  --shadow-color: rgba(0, 0, 0, .9);
 
   --txt-main: hsl(0, 0%, 100%);
   --txt-placeholder: hsl(0, 0%, 100%);
@@ -47,5 +43,49 @@ body {
 }
 
 .app {
+  background-color: var(--bg-surface);
   min-height: 100vh;
+}
+
+/* CountriesList COMPONENT */
+.countries-list {
+  display: grid;
+  grid-template-columns: repeat(4, 20%);
+  grid-auto-rows: 400px;
+  justify-content: space-evenly;
+  align-items: stretch;
+  row-gap: 3rem;
+}
+
+/* CountryCard COMPONENT */
+.country-card {
+  background-color: var(--bg-elements);
+  border-radius: .5rem;
+  overflow: hidden;
+  box-shadow: 0 1rem 3rem -1.5rem var(--shadow-color);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.country-thumbnail {
+  line-height: 0;
+}
+
+.country-thumbnail > img {
+  width: 100%;
+}
+
+.country-info {
+  padding: 1rem 2rem;
+}
+
+.country-name {
+  margin: 0;
+}
+
+/* CountryAttribute COMPONENT */
+.country-attribute > span {
+  font-weight: var(--weight-medium);
 }

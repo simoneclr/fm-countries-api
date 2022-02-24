@@ -108,7 +108,7 @@ CACHE.set("COL", new Country({
 
 const countriesService = {
 	getAll: () => {
-		if (CACHE.size > 0) {
+		if (CACHE.size > 1) {
 			console.log("countriesService: Returning cache")
 
 			return new Promise((resolve, reject) => {
