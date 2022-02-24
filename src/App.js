@@ -1,21 +1,15 @@
 import React, { useEffect } from "react";
 
-import countriesService from "./services/countriesService";
+import CountriesDashboard from "./components/CountriesDashboard";
 
 function App() {
-  useEffect(()=> {
-    countriesService.getAll()
-      .then(data => {
-        console.log(data.size)
-      })
-      .catch(console.error)
-  }, [])
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Where in the World?</h1>
+    <div className="app">
+      <header className="app-header">
+        <h1 className="app-title">Where in the World?</h1>
       </header>
+
+      <CountriesDashboard/>
     </div>
   );
 }
