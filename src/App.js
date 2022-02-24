@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import countriesService from "./services/countriesService";
 
 function App() {
+  useEffect(()=> {
+    countriesService.getAll()
+      .then(data => {
+        console.log(data.size)
+      })
+      .catch(console.error)
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
