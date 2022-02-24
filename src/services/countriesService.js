@@ -75,10 +75,9 @@ CACHE.set("COL", new Country({
     "it": "Colombia",
     "hu": "Kolumbia"
   },
-  "flags": [
-    "https://restcountries.com/data/col.svg",
-    "https://restcountries.com/data/png/col.png"
-  ],
+  "flags": {
+		"svg": "https://flagcdn.com/co.svg"
+	},
   "regionalBlocs": [
     {
       "acronym": "PA",

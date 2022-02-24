@@ -12,11 +12,6 @@ class Country {
 		this.domain = country.topLevelDomain[0]
 		this.flag = country.flags.svg
 
-		if (!this.flag) {
-			// Apparently not all countries have flag data stored in the same format
-			this.flag = country.flags[0]
-		}
-
 		if (country.languages) {
 			this.languages = country.languages.map(l => l.name)
 		} else {
