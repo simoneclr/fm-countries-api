@@ -6,6 +6,7 @@ import countriesService from "../services/countriesService";
 
 // Component that displays the dashboard with all countries
 function CountriesDashboard() {
+	
 	// State variable containing the list of available countries
 	let [countries, setCountries] = useState(new Map())
 
