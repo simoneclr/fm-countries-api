@@ -51,7 +51,7 @@ body {
 .countries-list {
   display: grid;
   grid-template-columns: repeat(4, 20%);
-  grid-auto-rows: 400px;
+  grid-auto-rows: max-content;
   justify-content: space-evenly;
   align-items: stretch;
   row-gap: 3rem;
