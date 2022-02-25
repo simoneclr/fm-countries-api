@@ -5,7 +5,7 @@ import CountryCard from "./CountryCard";
 function CountriesList(props) {
 	return (
 		<div className="countries-list">
-			{Array.from(props.countries).map(([id, country]) => 
+			{props.countries.map(([id, country]) => 
 				<CountryCard key={id} country={country}/>
 			)}
 		</div>
