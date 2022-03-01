@@ -8,6 +8,8 @@ function CountryNeighborsList(props) {
 	const [neighbors, setNeighbors] = useState([])
 
 	useEffect(() => {
+		setNeighbors([])
+
 		props.list.forEach(n => {
 			countriesService.getCountryById(n)
 				.then(data => {
