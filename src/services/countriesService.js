@@ -154,7 +154,9 @@ const countriesService = {
         .then(data => {
           let c = new Country(data)
 
-          CACHE.set(c.id, c)
+          // This causes bugs when trying to retrie all countries;
+          // TODO Find a smarter cache implementation
+          // CACHE.set(c.id, c)
 
           return c
         })
