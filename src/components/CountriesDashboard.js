@@ -60,7 +60,7 @@ function CountriesDashboard() {
 	}
 
 	// Filter by region
-	if (region !== "all" && region != "placeholder") {
+	if (region !== "all" && region !== "placeholder") {
 		filteredCountries = filteredCountries.filter(([id, country]) => {
 			return (country.region === REGION_NAMES[region])
 		})

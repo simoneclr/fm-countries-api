@@ -7,7 +7,7 @@ function CountryFilters(props) {
 
 	// Function that handles the change of the controls
 	const handleChange = (e) => {
-		if (e.target.type == "text") {
+		if (e.target.type === "text") {
 			// If the event is triggered by the text box, update the search state variable
 			setSearch(e.target.value)
 		} else {
