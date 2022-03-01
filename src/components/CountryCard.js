@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import CountryAttribute from "./CountryAttribute";
 
@@ -11,7 +12,9 @@ function CountryCard(props) {
 			</div>
 
 			<div className="country-info">
-				<h3 className="country-name">{props.country.name}</h3>
+				<Link to={"/country/" + props.country.id} className="country-name">
+					{props.country.name}
+				</Link>
 
 				<CountryAttribute name="Population" value={props.country.population}/>
 				<CountryAttribute name="Region" value={props.country.region}/>

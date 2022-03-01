@@ -165,7 +165,15 @@ option:disabled {
 }
 
 .country-name {
+  font-size: 1.3em;
+  font-weight: var(--weight-heavy);
+  color: var(--txt-main) !important;
+  text-decoration: none;
   margin: 0;
+}
+
+.country-name:hover {
+  text-decoration: underline;
 }
 
 /* CountryAttribute COMPONENT */

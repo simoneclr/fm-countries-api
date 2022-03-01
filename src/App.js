@@ -1,6 +1,12 @@
 import React from "react";
+import {
+  HashRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom"
 
 import CountriesDashboard from "./components/CountriesDashboard";
+import CountryDetails from "./components/CountryDetails";
 
 function App() {
   return (
@@ -9,7 +15,13 @@ function App() {
         <h1 className="app-title">Where in the World?</h1>
       </header>
 
-      <CountriesDashboard/>
+      <Router>
+        <Routes>
+          <Route path="/country/:countryId" element={<CountryDetails/>}/>
+
+          <Route path="/" element={<CountriesDashboard/>} />
+        </Routes>
+      </Router>      
     </div>
   );
 }
