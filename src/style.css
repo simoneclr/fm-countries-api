@@ -14,7 +14,7 @@
   --bg-elements: hsl(0, 0%, 100%);
 
   --shadow-color: rgba(0, 0, 0, .4);
-  --shadow-focus-color: rgba(0, 0, 0, .6);
+  --shadow-focus-color: rgba(0, 0, 0, .7);
 
   --txt-main: hsl(200, 15%, 8%);
   --txt-placeholder: hsl(0, 0%, 52%);
@@ -46,6 +46,7 @@ body {
 .app {
   background-color: var(--bg-surface);
   min-height: 100vh;
+  padding: 1rem 0;
 }
 
 /* CountriesDashboard COMPONENT */
@@ -181,10 +182,34 @@ option:disabled {
   font-weight: var(--weight-medium);
 }
 
-/* CountryDetails COMPONENT */
-.country-details {
+/* CountryPage COMPONENT */
+.country-page {
   width: 90%;
   margin: 0 auto;
+}
+
+.btn-back {
+  text-decoration: none;
+  color: var(--txt-main) !important;
+  display: inline-block;
+  padding: .5rem 2rem;
+  background-color: var(--bg-elements);
+  border-radius: .5rem;
+  box-shadow: 0 0 .1rem var(--shadow-color);
+}
+
+.btn-back:hover {
+  box-shadow: 0 0 .2rem var(--shadow-focus-color);
+}
+
+.btn-back:active {
+  transform: scale(.95);
+}
+
+/* CountryDetails COMPONENT */
+.country-details {
+  width: 100%;
+  margin: 3rem auto;
 
   display: flex;
   justify-content: space-between;

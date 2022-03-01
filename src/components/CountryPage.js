@@ -24,8 +24,8 @@ function CountryPage() {
 	}, [params.countryId])
 
 	return (
-		<div>
-			<Link to="/">Back</Link>
+		<div className="country-page">
+			<Link to="/" className="btn-back">Back</Link>
 
 			{country ? <CountryDetails country={country}/> : "Loading..."}			
 		</div>
