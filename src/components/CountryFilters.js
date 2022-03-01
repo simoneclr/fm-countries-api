@@ -7,9 +7,14 @@ function CountryFilters(props) {
 
 	// Function that handles the change of the controls
 	const handleChange = (e) => {
-		setSearch(e.target.value)
+		if (e.target.type == "text") {
+			// If the event is triggered by the text box, update the search state variable
+			setSearch(e.target.value)
+		} else {
+			// If the event is triggered by the select, update the region state variable
+			props.updateRegion(e.target.value)
+		}
 	}
-
 
 	// Function that handles the submission of the search bar
 	const handleSubmit = (e) => {
@@ -36,6 +41,16 @@ function CountryFilters(props) {
 					</button>
 				</label>
 			</form>
+
+			<select name="region" value={props.region} onChange={handleChange}>
+				<option value="placeholder" disabled>Filter by Region</option>
+				<option value="all">All Regions</option>
+				<option value="africa">Africa</option>
+				<option value="americas">America</option>
+				<option value="asia">Asia</option>
+				<option value="europe">Europe</option>
+				<option value="oceania">Oceania</option>
+			</select>
 		</div>
 	)
 }

@@ -5,6 +5,17 @@ import CountriesList from "./CountriesList";
 
 import countriesService from "../services/countriesService";
 
+// Translates state variable into display names to compare with country data
+const REGION_NAMES = {
+	all: "ALL",
+	placeholder: "ALL",
+	africa: "Africa",
+	americas: "Americas",
+	asia: "Asia",
+	europe: "Europe",
+	oceania: "Oceania"
+}
+
 // Component that displays the dashboard with all countries
 function CountriesDashboard() {
 	
@@ -12,7 +23,7 @@ function CountriesDashboard() {
 	const [search, setSearch] = useState("")
 
 	// State variable containing the selected region filter
-	const [region, setRegion] = useState()
+	const [region, setRegion] = useState("placeholder")
 
 	// State variable containing the list of available countries
 	const [countries, setCountries] = useState(new Map())
@@ -38,12 +49,20 @@ function CountriesDashboard() {
 
 	let filteredCountries = Array.from(countries)
 
+	// Filter based on name search
 	if (search.length > 0) {
 		// Create case insensitive pattern from search string
 		const pattern = new RegExp(search, "i",) 
 
 		filteredCountries = filteredCountries.filter(([id, country]) => {
 			return (pattern.test(country.name))
+		})
+	}
+
+	// Filter by region
+	if (region !== "all" && region != "placeholder") {
+		filteredCountries = filteredCountries.filter(([id, country]) => {
+			return (country.region === REGION_NAMES[region])
 		})
 	}
 
