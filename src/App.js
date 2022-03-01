@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 
 import CountriesDashboard from "./components/CountriesDashboard";
-import CountryDetails from "./components/CountryDetails";
+import CountryPage from "./components/CountryPage";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path="/country/:countryId" element={<CountryDetails/>}/>
+          <Route path="/country/:countryId" element={<CountryPage/>}/>
 
           <Route path="/" element={<CountriesDashboard/>} />
         </Routes>

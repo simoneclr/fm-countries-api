@@ -2,6 +2,7 @@ import Country from "../model/country"
 
 const ENDPOINTS = {
 	all: "https://restcountries.com/v2/all",
+  getById: "https://restcountries.com/v2/alpha/",
 	filters: "?fields=name"
 }
 
@@ -127,7 +128,39 @@ const countriesService = {
 					return CACHE
 				})
 		}
-	}
+	},
+
+  getCountryById: (id) => {
+    if (CACHE.has(id)) {
+      console.log("countriesService: Retrieving " + id + " from cache")
+
+      return new Promise((resolve, reject) => {
+        resolve(CACHE.get(id))
+      })
+    } else {
+      console.log("countriesService: Requesting " + id + " data to API")
+
+      return fetch(ENDPOINTS.getById + id)
+        .then(response => {
+          if (!response.ok) {
+            let err = new Error("HTTP status code: " + response.status)
+            err.response = response
+            err.status = response.status
+            throw err
+          }
+          
+          return response.json()
+        })
+        .then(data => {
+          let c = new Country(data)
+
+          CACHE.set(c.id, c)
+
+          return c
+        })
+        .catch(console.error)
+    }
+  }
 }
 
 export default countriesService
