@@ -14,6 +14,7 @@
   --bg-elements: hsl(0, 0%, 100%);
 
   --shadow-color: rgba(0, 0, 0, .4);
+  --shadow-focus-color: rgba(0, 0, 0, .6);
 
   --txt-main: hsl(200, 15%, 8%);
   --txt-placeholder: hsl(0, 0%, 52%);
@@ -63,12 +64,15 @@ body {
   align-items: center;
 }
 
-.search-bar {
+.filter-element {
   background-color: var(--bg-elements);
-  width: 450px;
   padding: 1rem;
   border-radius: .5rem;
   box-shadow: 0 1rem 2rem -1.3rem var(--shadow-color);
+}
+
+.search-bar {
+  width: 450px;
 
   display: flex;
   align-items: center;
@@ -113,6 +117,16 @@ body {
 
 .btn-icon:active > svg {
   transform: scale(.9);
+}
+
+.region-select {
+  width: 200px;
+  border: none;
+  outline: none;
+}
+
+option:disabled {
+  display: none;
 }
 
 /* CountriesList COMPONENT */

@@ -26,7 +26,7 @@ function CountryFilters(props) {
 	return (
 		<div className="filters-menu">
 			<form onSubmit={handleSubmit}>
-				<label className="search-bar">
+				<label className="filter-element search-bar">
 					<input type="text" name="name-search" value={search} onChange={handleChange}
 										placeholder="Search for a Country..."/>
 										
@@ -42,7 +42,8 @@ function CountryFilters(props) {
 				</label>
 			</form>
 
-			<select name="region" value={props.region} onChange={handleChange}>
+			<select name="region" value={props.region} onChange={handleChange} 
+				className="filter-element region-select">
 				<option value="placeholder" disabled>Filter by Region</option>
 				<option value="all">All Regions</option>
 				<option value="africa">Africa</option>
