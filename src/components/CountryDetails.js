@@ -16,14 +16,21 @@ function CountryDetails(props) {
 			<div className="country-info">
 				<h2 className="country-name">{country.name}</h2>
 
-				<CountryAttribute name="Native Name" value={country.nativeName}/>
-				<CountryAttribute name="Population" value={country.population}/>
-				<CountryAttribute name="Region" value={country.region}/>
-				<CountryAttribute name="Sub Region" value={country.subRegion}/>
-				<CountryAttribute name="Capital" value={country.capital}/>
-				<CountryAttribute name="Top Level Domain" value={country.domain}/>
-				<CountryAttribute name="Currencies" value={country.currencies}/>
-				<CountryAttribute name="Languages" value={country.languages}/>
+				<div className="country-attributes">
+					<div className="first">
+						<CountryAttribute name="Native Name" value={country.nativeName}/>
+						<CountryAttribute name="Population" value={country.population}/>
+						<CountryAttribute name="Region" value={country.region}/>
+						<CountryAttribute name="Sub Region" value={country.subRegion}/>
+						<CountryAttribute name="Capital" value={country.capital}/>
+					</div>
+
+					<div className="second">
+						<CountryAttribute name="Top Level Domain" value={country.domain}/>
+						<CountryAttribute name="Currencies" value={country.currencies}/>
+						<CountryAttribute name="Languages" value={country.languages}/>
+					</div>
+				</div>
 
 				<CountryNeighborsList list={country.neighbors}/>			
 			</div>

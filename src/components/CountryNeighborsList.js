@@ -17,9 +17,13 @@ function CountryNeighborsList(props) {
 	}, [props.list])
 
 	return (
-		<ul className="country-neighbors">
-			{neighbors.map(n => <li key={n}>{n}</li>)}
-		</ul>
+		<div className="country-neighbors">
+			<span>Border Countries:</span>
+
+			<ul>
+				{neighbors.map(n => <li key={n}>{n}</li>)}
+			</ul>
+		</div>
 	)
 }
 

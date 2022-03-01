@@ -180,3 +180,75 @@ option:disabled {
 .country-attribute > span {
   font-weight: var(--weight-medium);
 }
+
+/* CountryDetails COMPONENT */
+.country-details {
+  width: 90%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.country-flag {
+  width: 40%;
+  line-height: 0;
+}
+
+.country-flag > img {
+  width: 100%;
+}
+
+.country-details .country-info {
+  width: 55%;
+  padding: 0;
+}
+
+.country-details .country-name {
+  font-size: 2em;
+  text-decoration: none !important;
+}
+
+.country-attributes {
+  width: 100%;
+  margin: 1rem 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.country-attributes > .first, .country-attributes > .second {
+  width: 50%;
+}
+
+/* CountryNeighborsList COMPONENT */
+.country-neighbors {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+}
+
+.country-neighbors > span {
+  font-weight: var(--weight-medium);
+}
+
+.country-neighbors > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem
+}
+
+.country-neighbors li {
+  display: block;
+  padding: .2rem 1rem;
+  background-color: var(--bg-elements);
+  box-shadow: 0 0 .1rem  var(--shadow-color);
+}
