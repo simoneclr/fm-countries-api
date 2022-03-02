@@ -53,10 +53,15 @@ body {
   color: var(--txt-main);
   background-color: var(--bg-surface);
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .app-header {
   background-color: var(--bg-elements);
+  width: 100%;
   padding: 0 5%;
   margin-bottom: 3rem;
 
@@ -140,6 +145,9 @@ body {
 .app-content {
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 3rem;
+
+  flex-grow: 1;
 }
 
 /* CountriesDashboard COMPONENT */
@@ -385,4 +393,21 @@ option:disabled {
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem
+}
+
+/* FOOTER */
+.attribution {
+  color: var(--txt-main);
+  width: 100%;
+  padding: 1rem 5%;
+}
+
+.attribution a {
+  text-decoration: none;
+  color: var(--txt-main) !important;
+  font-weight: var(--weight-medium);
+}
+
+.attribution a:hover {
+  text-decoration: underline;
 }
