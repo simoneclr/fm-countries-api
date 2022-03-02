@@ -25,7 +25,7 @@ function CountryPage() {
 
 	return (
 		<div className="country-page">
-			<Link to="/" className="btn-back">Back</Link>
+			<Link to="/" className="btn-link">Back</Link>
 
 			{country ? <CountryDetails country={country}/> : "Loading..."}			
 		</div>
