@@ -13,6 +13,9 @@
   --bg-surface: hsl(0, 0%, 98%);
   --bg-elements: hsl(0, 0%, 100%);
 
+  --bg-toggle-slider: rgba(0, 0, 0, .5);  
+  --bg-toggle-control: #272727;
+
   --shadow-color: rgba(0, 0, 0, .4);
   --shadow-focus-color: rgba(0, 0, 0, .7);
 
@@ -26,10 +29,14 @@
   --bg-surface: hsl(207, 26%, 17%);
   --bg-elements: hsl(209, 23%, 22%);
 
-  --shadow-color: rgba(0, 0, 0, .9);
+  --bg-toggle-slider: rgba(255, 255, 255, .5);  
+  --bg-toggle-control: #FFFFFF;
 
-  --txt-main: hsl(0, 0%, 100%);
-  --txt-placeholder: hsl(0, 0%, 100%);
+  --shadow-color: rgba(0, 0, 0, 1);
+  --shadow-focus-color: rgba(0, 0, 0, 1);
+
+  --txt-main: hsl(0, 0%, 90%);
+  --txt-placeholder: hsl(0, 0%, 80%);
 }
 
 * {
@@ -38,12 +45,12 @@
 
 body {
   font-family: "Nunito Sans", sans-serif;
-  color: var(--txt-main);
   padding: 0;
   margin: 0;
 }
 
 .app {
+  color: var(--txt-main);
   background-color: var(--bg-surface);
   min-height: 100vh;
 }
@@ -52,6 +59,8 @@ body {
   background-color: var(--bg-elements);
   padding: 0 5%;
   margin-bottom: 3rem;
+
+  box-shadow: 0 -0.5rem 1.5rem 0rem var(--shadow-color);
 
   display: flex;
   justify-content: space-between;
@@ -96,7 +105,7 @@ body {
 	right: 0;
 	bottom: 0;
 	border-radius: 2em;
-	background-color: red;
+	background-color: var(--bg-toggle-slider);
 	-webkit-transition: .4s;
   transition: .4s;
 }
@@ -110,15 +119,14 @@ body {
 	border-radius: 50%;
   top: -0.1em;
   left: -0.1em;
-  background-color: black;
+  background-color: var(--bg-toggle-control);
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 /* Style the toggle when checked */
-.toggle-control input:checked + .toggle-slider {
-	background-color: lime;
-}
+/* .toggle-control input:checked + .toggle-slider {
+} */
 
 /* Move the sliding object to the right */
 .toggle-control input:checked + .toggle-slider::before {
@@ -126,8 +134,8 @@ body {
 }
 
 /* Style the toggle when focused */
-.toggle-control input:focus + .toggle-slider {
-}
+/* .toggle-control input:focus + .toggle-slider {
+} */
 
 /* CountriesDashboard COMPONENT */
 .dashboard {
@@ -162,6 +170,7 @@ body {
 
 .search-bar > input {
   color: var(--txt-main);
+  background-color: var(--bg-elements);
   border: none;
   outline: none;
   order: 2;
@@ -201,7 +210,10 @@ body {
 }
 
 .region-select {
+  cursor: pointer;
   width: 200px;
+  color: var(--txt-main);
+  background-color: var(--bg-elements);
   border: none;
   outline: none;
 }
@@ -262,6 +274,14 @@ option:disabled {
   font-weight: var(--weight-medium);
 }
 
+.dark-theme .country-attribute {
+  color: var(--txt-placeholder);
+}
+
+.dark-theme .country-attribute > span {
+  color: var(--txt-main);
+}
+
 /* CountryPage COMPONENT */
 .country-page {
   width: 90%;
@@ -270,7 +290,7 @@ option:disabled {
 
 .btn-link {
   text-decoration: none;
-  color: var(--txt-main) !important;
+  color: var(--txt-main);
   display: inline-block;
   padding: .3rem 2rem;
   background-color: var(--bg-elements);
@@ -284,6 +304,14 @@ option:disabled {
 
 .btn-link:active {
   transform: scale(.95);
+}
+
+.dark-theme .btn-link {
+  color: var(--txt-placeholder);
+}
+
+.dark-theme .btn-link:hover {
+  color: var(--txt-main);
 }
 
 /* CountryDetails COMPONENT */
