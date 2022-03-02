@@ -62,7 +62,7 @@ body {
 .app-header {
   background-color: var(--bg-elements);
   width: 100%;
-  padding: 0 5%;
+  padding: 2rem 5%;
   margin-bottom: 3rem;
 
   box-shadow: 0 -0.5rem 1.5rem 0rem var(--shadow-color);
@@ -70,6 +70,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.app-header h1 {
+  margin: 0;
 }
 
 /* Theme toggle */
@@ -85,6 +89,7 @@ body {
 /* Label */
 .toggle-label {
   display: block;
+  width: max-content;
 }
 
 /* Hide native checkbox */
@@ -160,9 +165,17 @@ body {
 
 /* CountryFilters COMPONENT */
 .filters-menu {
+  width: 100%;
+
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem 3rem;
+}
+
+.filters-menu > form {
+  width: 100%;
 }
 
 .filter-element {
@@ -173,7 +186,8 @@ body {
 }
 
 .search-bar {
-  width: 450px;
+  width: 100%;
+  max-width: 450px;
 
   display: flex;
   align-items: center;
@@ -223,7 +237,8 @@ body {
 
 .region-select {
   cursor: pointer;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   color: var(--txt-main);
   background-color: var(--bg-elements);
   border: none;
@@ -238,11 +253,11 @@ option:disabled {
 .countries-list {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(auto-fit, 270px);
   grid-auto-rows: max-content;
   justify-content: space-between;
   align-items: stretch;
-  row-gap: 3rem;
+  gap: 3rem;
 }
 
 /* CountryCard COMPONENT */

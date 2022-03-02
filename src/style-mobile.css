@@ -1,0 +1,45 @@
+@media screen and (max-width: 769px) {
+	/* HEADER */
+	.app-header h1, .theme-toggle {
+		font-size: 1em;
+	}
+
+	/* DASHBOARD */
+	.countries-list {
+		justify-content: center;
+	}
+
+	/* DETAILS */
+	.country-details {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		row-gap: 3rem;
+	}
+
+	.country-flag, .country-details .country-info {
+		width: 100%;
+	}
+
+	.country-attributes {
+		width: 100%;
+		flex-direction: column;
+		row-gap: 1rem;
+	}
+
+	.country-attributes > .first, .country-attributes > .second {
+		width: 100%;
+	}
+
+	.country-neighbors {
+		flex-direction: column;
+	}
+
+	.country-neighbors > span {
+		width: 100%;
+	}
+
+	.country-neighbors > ul {
+		margin: 0;
+	}
+}
