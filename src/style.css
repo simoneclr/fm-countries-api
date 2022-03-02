@@ -176,6 +176,7 @@ body {
 
 .filters-menu > form {
   width: 100%;
+  max-width: 450px;
 }
 
 .filter-element {
@@ -187,7 +188,6 @@ body {
 
 .search-bar {
   width: 100%;
-  max-width: 450px;
 
   display: flex;
   align-items: center;
