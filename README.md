@@ -2,6 +2,8 @@
 
 ![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
 
+[Live Demo](https://simoneclr.github.io/fm-countries-api)
+
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
