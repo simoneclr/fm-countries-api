@@ -46,7 +46,87 @@ body {
 .app {
   background-color: var(--bg-surface);
   min-height: 100vh;
-  padding: 1rem 0;
+}
+
+.app-header {
+  background-color: var(--bg-elements);
+  padding: 0 5%;
+  margin-bottom: 3rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  font-size: 1.2em;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Label */
+.toggle-label {
+  display: block;
+}
+
+/* Hide native checkbox */
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Style the custom control */
+.toggle-control {  
+  position: relative;
+  height: 1.2em;
+  width: 2.5em
+}
+
+/* Style the slider */
+.toggle-slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 2em;
+	background-color: red;
+	-webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* The moving object inside the slider */
+.toggle-slider::before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+	border-radius: 50%;
+  top: -0.1em;
+  left: -0.1em;
+  background-color: black;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Style the toggle when checked */
+.toggle-control input:checked + .toggle-slider {
+	background-color: lime;
+}
+
+/* Move the sliding object to the right */
+.toggle-control input:checked + .toggle-slider::before {
+  transform: translateX(1.3em);
+}
+
+/* Style the toggle when focused */
+.toggle-control input:focus + .toggle-slider {
 }
 
 /* CountriesDashboard COMPONENT */
