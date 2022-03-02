@@ -137,10 +137,14 @@ body {
 /* .toggle-control input:focus + .toggle-slider {
 } */
 
-/* CountriesDashboard COMPONENT */
-.dashboard {
+.app-content {
   width: 90%;
   margin: 0 auto;
+}
+
+/* CountriesDashboard COMPONENT */
+.dashboard {
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 3rem;
@@ -284,8 +288,7 @@ option:disabled {
 
 /* CountryPage COMPONENT */
 .country-page {
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .btn-link {

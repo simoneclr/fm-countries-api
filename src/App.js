@@ -41,13 +41,15 @@ function App() {
         </label>
       </header>
 
-      <Router>
-        <Routes>
-          <Route path="/country/:countryId" element={<CountryPage/>}/>
+      <section className="app-content">
+        <Router>
+          <Routes>
+            <Route path="/country/:countryId" element={<CountryPage/>}/>
 
-          <Route path="/" element={<CountriesDashboard/>} />
-        </Routes>
-      </Router>      
+            <Route path="/" element={<CountriesDashboard/>} />
+          </Routes>
+        </Router>
+      </section>          
     </div>
   );
 }
