@@ -20,7 +20,13 @@ class Country {
 
 		this.name = country.name
 		this.nativeName = country.nativeName
-		this.neighbors = country.borders
+
+		if (country.borders) {
+			this.neighbors = country.borders
+		} else {
+			this.neighbors = []
+		}
+		
 		this.population = country.population
 		this.region = country.region
 		this.subRegion = country.subregion

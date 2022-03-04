@@ -32,7 +32,10 @@ function CountryDetails(props) {
 					</div>
 				</div>
 
-				<CountryNeighborsList list={country.neighbors}/>			
+				{country.neighbors.length > 0 ?
+					<CountryNeighborsList list={country.neighbors}/>
+					: ""
+				}			
 			</div>
 		</div>
 	)
