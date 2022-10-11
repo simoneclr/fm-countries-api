@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import CountryFilters from "./CountryFilters";
 import CountriesList from "./CountriesList";
+import LoadingPage from "./LoadingPage";
 import ErrorPage from "./ErrorPage";
 
 import countriesService from "../services/countriesService";
@@ -88,7 +89,7 @@ function CountriesDashboard() {
 											region={region} updateRegion={handleRegionUpdate}/>
 
 			{ (status === STATUS.loading) &&
-				<span>Loading...</span>
+				<LoadingPage />
 			}
 
 			{ (status === STATUS.error) &&
