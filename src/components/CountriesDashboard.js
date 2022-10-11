@@ -16,8 +16,17 @@ const REGION_NAMES = {
 	oceania: "Oceania"
 }
 
+const STATUS = {
+	ok: "OK",
+	loading: "LOADING",
+	error: "ERROR"
+}
+
 // Component that displays the dashboard with all countries
 function CountriesDashboard() {
+
+	// State variable controlling the presence of errors
+	const [status, setStatus] = useState(STATUS.ok)
 	
 	// State variable containing the current search parameter
 	const [search, setSearch] = useState("")
@@ -30,11 +39,17 @@ function CountriesDashboard() {
 
 	// When mounting the component, retrieve the list of available countries
 	useEffect(()=> {
+		setStatus(STATUS.loading)
+		
     countriesService.getAll()
       .then(data => {
 				setCountries(data)
+				setStatus(STATUS.ok)
       })
-      .catch(console.error)
+      .catch(error => {
+				console.log("An error has occurred:", error.message)
+				setStatus(STATUS.error)
+			})
   }, [])
 
 	// Function that updates the seach term
@@ -71,7 +86,17 @@ function CountriesDashboard() {
 			<CountryFilters updateSearch={handleSearchUpdate}
 											region={region} updateRegion={handleRegionUpdate}/>
 
-			<CountriesList countries={filteredCountries}/>
+			{ (status === STATUS.loading) &&
+				<span>Loading...</span>
+			}
+
+			{ (status === STATUS.error) &&
+				<span>An error has occurred</span>
+			}
+
+			{ (status === STATUS.ok) && 
+				<CountriesList countries={filteredCountries}/>				
+			}
 		</section>
 	)
 }

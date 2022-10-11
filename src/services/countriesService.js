@@ -108,25 +108,27 @@ const CACHE = new Map()
 // }))
 
 const countriesService = {
-	getAll: () => {
+	getAll: async () => {
 		if (CACHE.size > 0) {
 			console.log("countriesService: Returning cache")
 
-			return new Promise((resolve, reject) => {
-				resolve(CACHE)
-			})			
+			return CACHE		
 		} else {
 			console.log("countriesService: Requesting to API")
 
-			return fetch(ENDPOINTS.all)
-				.then(response => response.json())
-				.then(data => {
-					data.forEach(country => {
-						CACHE.set(country.alpha3Code, new Country(country))
-					})
+			const response = await fetch(ENDPOINTS.all)
 
-					return CACHE
-				})
+      if (!response.ok) {
+        throw new Error(response.status + " " + response.statusText)
+      }
+      
+      const data = await response.json()
+      
+      data.forEach(country => {
+        CACHE.set(country.alpha3Code, new Country(country))
+      })
+
+      return CACHE
 		}
 	},
 
