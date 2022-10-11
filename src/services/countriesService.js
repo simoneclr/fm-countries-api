@@ -1,7 +1,7 @@
 import Country from "../model/country"
 
 const ENDPOINTS = {
-	all: "https://restcountries.com/v2/all",
+	all: "https://restcountries.com/v2/alll",
   getById: "https://restcountries.com/v2/alpha/",
 	filters: "?fields=name"
 }

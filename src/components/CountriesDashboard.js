@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import CountryFilters from "./CountryFilters";
 import CountriesList from "./CountriesList";
+import ErrorPage from "./ErrorPage";
 
 import countriesService from "../services/countriesService";
 
@@ -40,7 +41,7 @@ function CountriesDashboard() {
 	// When mounting the component, retrieve the list of available countries
 	useEffect(()=> {
 		setStatus(STATUS.loading)
-		
+
     countriesService.getAll()
       .then(data => {
 				setCountries(data)
@@ -91,7 +92,7 @@ function CountriesDashboard() {
 			}
 
 			{ (status === STATUS.error) &&
-				<span>An error has occurred</span>
+				<ErrorPage />
 			}
 
 			{ (status === STATUS.ok) && 
