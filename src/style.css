@@ -253,7 +253,7 @@ option:disabled {
 .countries-list {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 270px);
+  grid-template-columns: repeat(auto-fill, 270px);
   grid-auto-rows: max-content;
   justify-content: space-between;
   align-items: stretch;
