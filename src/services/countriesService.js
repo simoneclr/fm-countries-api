@@ -132,7 +132,7 @@ const countriesService = {
 		}
 	},
 
-  getCountryById: (id) => {
+  getCountryById: async (id) => {
     if (CACHE.has(id)) {
       console.log("countriesService: Retrieving " + id + " from cache")
 
@@ -142,27 +142,15 @@ const countriesService = {
     } else {
       console.log("countriesService: Requesting " + id + " data to API")
 
-      return fetch(ENDPOINTS.getById + id)
-        .then(response => {
-          if (!response.ok) {
-            let err = new Error("HTTP status code: " + response.status)
-            err.response = response
-            err.status = response.status
-            throw err
-          }
-          
-          return response.json()
-        })
-        .then(data => {
-          let c = new Country(data)
+      const response = await fetch(ENDPOINTS.getById + id)
 
-          // This causes bugs when trying to retrie all countries;
-          // TODO Find a smarter cache implementation
-          // CACHE.set(c.id, c)
+      if (!response.ok) {
+        throw new Error(response.status + " " + response.statusText)
+      }
 
-          return c
-        })
-        .catch(console.error)
+      const data = await response.json()
+        
+      return new Country(data)
     }
   }
 }
