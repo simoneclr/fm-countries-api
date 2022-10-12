@@ -396,6 +396,12 @@ option:disabled {
   font-weight: var(--weight-medium);
 }
 
+.country-neighbors > .status-message {
+  flex-grow: 1;
+  font-weight: var(--weight-light);
+  color: var(--txt-placeholder);
+}
+
 .country-neighbors > ul {
   list-style: none;
   padding: 0;
