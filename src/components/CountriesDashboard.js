@@ -85,7 +85,7 @@ function CountriesDashboard() {
 
 	return (
 		<section className="dashboard">
-			<CountryFilters updateSearch={handleSearchUpdate}
+			<CountryFilters search={search} updateSearch={handleSearchUpdate}
 											region={region} updateRegion={handleRegionUpdate}/>
 
 			{ (status === STATUS.loading) &&

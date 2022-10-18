@@ -174,11 +174,6 @@ body {
   gap: 1rem 3rem;
 }
 
-.filters-menu > form {
-  width: 100%;
-  max-width: 450px;
-}
-
 .filter-element {
   background-color: var(--bg-elements);
   padding: 1rem;
@@ -188,6 +183,7 @@ body {
 
 .search-bar {
   width: 100%;
+  max-width: 450px;
 
   display: flex;
   align-items: center;
