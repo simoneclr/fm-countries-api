@@ -203,13 +203,13 @@ body {
   color: var(--txt-placeholder);
 }
 
-.search-bar > input:focus + .btn-icon > svg{
+.search-bar > input:focus + .icon-search {
   fill: var(--txt-main);
 }
 
 .btn-icon {
+  order: 3;
   cursor: pointer;
-  order: 1;
   line-height: 0;
   padding: 0;
   background: none;
@@ -217,18 +217,26 @@ body {
   outline: none;
 }
 
-.btn-icon > svg {
+.icon {
   height: 1em;
   width: auto;
   fill: var(--txt-placeholder);
 }
 
-.btn-icon:hover > svg {
+.icon-search {
+  order: 1;
+}
+
+.icon-cancel {
+  transform: scale(1.5);
+}
+
+.btn-icon:hover > .icon-cancel {
   fill: var(--txt-main);
 }
 
-.btn-icon:active > svg {
-  transform: scale(.9);
+.btn-icon:active > .icon-cancel {
+  transform: scale(1.3);
 }
 
 .region-select {
