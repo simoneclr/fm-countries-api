@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import CountryFilters from "./CountryFilters";
 import CountriesList from "./CountriesList";
@@ -64,24 +64,33 @@ function CountriesDashboard() {
 		setRegion(regionFilter)
 	}
 
-	let filteredCountries = Array.from(countries)
+	const filterCountries = (countriesList, searchTerm, selectedRegion) => {
+		let res = Array.from(countriesList)
 
-	// Filter based on name search
-	if (search.length > 0) {
-		// Create case insensitive pattern from search string
-		const pattern = new RegExp(search, "i",) 
+		// Filter based on name search
+		if (searchTerm.length > 0) {
+			// Create case insensitive pattern from search string
+			const pattern = new RegExp(searchTerm, "i",) 
 
-		filteredCountries = filteredCountries.filter(([id, country]) => {
-			return (pattern.test(country.name))
-		})
+			res = res.filter(([id, country]) => {
+				return (pattern.test(country.name))
+			})
+		}
+
+		// Filter by region
+		if (selectedRegion !== "all" && selectedRegion !== "placeholder") {
+			res = res.filter(([id, country]) => {
+				return (country.region === REGION_NAMES[selectedRegion])
+			})
+		}
+
+		return res
 	}
 
-	// Filter by region
-	if (region !== "all" && region !== "placeholder") {
-		filteredCountries = filteredCountries.filter(([id, country]) => {
-			return (country.region === REGION_NAMES[region])
-		})
-	}
+	const filteredCountries = useMemo(
+		() => filterCountries(countries, search, region), 
+		[countries, search, region]
+	)
 
 	return (
 		<section className="dashboard">
