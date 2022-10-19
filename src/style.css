@@ -12,6 +12,7 @@
   /* Colors */
   --bg-surface: hsl(0, 0%, 98%);
   --bg-elements: hsl(0, 0%, 100%);
+  --bg-hover: #f2f2f2;
 
   --bg-toggle-slider: rgba(0, 0, 0, .5);  
   --bg-toggle-control: #272727;
@@ -28,6 +29,7 @@
   /* Colors */
   --bg-surface: hsl(207, 26%, 17%);
   --bg-elements: hsl(209, 23%, 22%);
+  --bg-hover: hsl(209, 20%, 30%);
 
   --bg-toggle-slider: rgba(255, 255, 255, .5);  
   --bg-toggle-control: #FFFFFF;
@@ -251,6 +253,37 @@ body {
 
 option:disabled {
   display: none;
+}
+
+/* Listbox */
+.Listbox {
+  position: relative;
+}
+
+.listbox-options {
+  position: absolute;
+  list-style: none;
+  background-color: var(--bg-elements);
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 1rem 2rem -1.3rem var(--shadow-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+
+.listbox-options.closed {
+  display: none;
+}
+
+.listbox-options > li {
+  cursor: pointer;
+  padding: .5rem;
+}
+
+.listbox-options > li:hover {
+  background-color: var(--bg-hover);
 }
 
 /* CountriesList COMPONENT */

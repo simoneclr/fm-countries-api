@@ -5,18 +5,9 @@ import CountriesList from "./CountriesList";
 import LoadingPage from "./LoadingPage";
 import ErrorPage from "./ErrorPage";
 
-import countriesService from "../services/countriesService";
+import { REGION_NAMES } from "../util/regions";
 
-// Translates state variable into display names to compare with country data
-const REGION_NAMES = {
-	all: "ALL",
-	placeholder: "ALL",
-	africa: "Africa",
-	americas: "Americas",
-	asia: "Asia",
-	europe: "Europe",
-	oceania: "Oceania"
-}
+import countriesService from "../services/countriesService";
 
 const STATUS = {
 	ok: "OK",
