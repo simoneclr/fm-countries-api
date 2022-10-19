@@ -41,8 +41,16 @@ function RegionListbox ({value, handleChange}) {
 }
 
 const Item = ({children, disabled, selected, handleClick}) => {
+
+	// Only handle click if disabled is false
+	const handleClickIfAllowed = () => {
+		if (!disabled) {
+			handleClick()
+		}
+	}
+
 	return (
-		<li onClick={(handleClick)}>
+		<li onClick={(handleClickIfAllowed)} data-option-selected={selected} data-option-disabled={disabled}>
 			{children}
 		</li>
 	)

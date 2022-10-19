@@ -306,6 +306,16 @@ option:disabled {
   background-color: var(--bg-hover);
 }
 
+.listbox-options > li[data-option-selected="true"] {
+  background-color: var(--bg-hover);
+}
+
+.listbox-options > li[data-option-disabled="true"] {
+  cursor: not-allowed;
+  background-color: transparent;
+  text-decoration: line-through;
+}
+
 /* CountriesList COMPONENT */
 .countries-list {
   width: 100%;
