@@ -194,6 +194,8 @@ body {
 
 .search-bar > input {
   color: var(--txt-main);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: var(--weight-medium);
   background-color: var(--bg-elements);
   border: none;
   outline: none;
@@ -263,6 +265,9 @@ option:disabled {
 
 .listbox-button {
   width: 100%;
+  color: var(--txt-main);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: var(--weight-medium);
   cursor: pointer;
   text-align: left;
   background-color: var(--bg-elements);
