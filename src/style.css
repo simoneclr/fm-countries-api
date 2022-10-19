@@ -258,13 +258,32 @@ option:disabled {
 /* Listbox */
 .Listbox {
   position: relative;
+  width: 200px;
+}
+
+.listbox-button {
+  width: 100%;
+  cursor: pointer;
+  text-align: left;
+  background-color: var(--bg-elements);
+  box-shadow: 0 1rem 2rem -1.3rem var(--shadow-color);
+  padding: 1rem;
+  border-radius: .5rem;
+  border: none;
+  outline: none;
+}
+
+.listbox-button:hover {
+  background-color: var(--bg-hover);
 }
 
 .listbox-options {
   position: absolute;
+  left: 0;
+  right: 0;
   list-style: none;
   background-color: var(--bg-elements);
-  padding: 1rem;
+  padding: .5rem;
   border-radius: .5rem;
   box-shadow: 0 1rem 2rem -1.3rem var(--shadow-color);
 
@@ -280,6 +299,7 @@ option:disabled {
 .listbox-options > li {
   cursor: pointer;
   padding: .5rem;
+  border-radius: .2rem;
 }
 
 .listbox-options > li:hover {
