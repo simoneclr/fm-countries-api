@@ -271,10 +271,22 @@ option:disabled {
   border-radius: .5rem;
   border: none;
   outline: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .listbox-button:hover {
   background-color: var(--bg-hover);
+}
+
+.listbox-button > .icon {
+  fill: var(--txt-main);
+}
+
+.Listbox[data-listbox-open="true"] > .listbox-button > .icon {
+  transform: rotate(180deg);
 }
 
 .listbox-options {
@@ -292,8 +304,8 @@ option:disabled {
   gap: .1rem;
 }
 
-.listbox-options.closed {
-  display: none;
+.Listbox[data-listbox-open="false"] > .listbox-options {
+  visibility: hidden;
 }
 
 .listbox-options > li {

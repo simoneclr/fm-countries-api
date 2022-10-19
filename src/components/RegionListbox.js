@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import { ReactComponent as CaretIcon } from "../assets/svgs/caret-down-solid.svg"
+
 import { REGION_NAMES } from "../util/regions"
 
 // Displays a custom Select Menu allowing the user to limit their search to a specific region
@@ -20,12 +22,16 @@ function RegionListbox ({value, handleChange}) {
 	}
 
 	return (
-		<div className="Listbox">
+		<div className="Listbox" data-listbox-open={open}>
 			<button className="listbox-button" onClick={toggleMenu}>
-				{value === "placeholder" ? "Filter by Region" : REGION_NAMES[value]}
+				<span>
+					{value === "placeholder" ? "Filter by Region" : REGION_NAMES[value]}
+				</span>
+
+				<CaretIcon className="icon"/>
 			</button>
 
-			<ul className={(open ? "open" : "closed") + " listbox-options"}>
+			<ul className="listbox-options">
 				{
 					Object.keys(REGION_NAMES).map(regionId =>
 						<Item key={regionId} value={regionId} selected={regionId === value}
