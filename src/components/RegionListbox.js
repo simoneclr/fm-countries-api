@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
+
+import useOnClickOutside from "../hooks/useOnClickOutside"
 
 import { ReactComponent as CaretIcon } from "../assets/svgs/caret-down-solid.svg"
 
@@ -7,8 +9,14 @@ import { REGION_NAMES } from "../util/regions"
 // Displays a custom Select Menu allowing the user to limit their search to a specific region
 function RegionListbox ({value, handleChange}) {
 
+	// Ref used to detect outside clicks
+	const menuRef = useRef()
+
 	// Controls wether the options are visible or not
 	const [open, setOpen] = useState(false)
+
+	// Hook to close menu when clicking outside
+	useOnClickOutside(menuRef, () => setOpen(false))
 
 	const toggleMenu = () => {
 		setOpen(prevState => !prevState)
@@ -22,7 +30,7 @@ function RegionListbox ({value, handleChange}) {
 	}
 
 	return (
-		<div className="Listbox" data-listbox-open={open}>
+		<div ref={menuRef} className="Listbox" data-listbox-open={open}>
 			<button className="listbox-button" onClick={toggleMenu}>
 				<span>
 					{value === "placeholder" ? "Filter by Region" : REGION_NAMES[value]}
